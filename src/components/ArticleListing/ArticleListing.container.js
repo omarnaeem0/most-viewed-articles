@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import ArticleListing from "./ArticleListing";
 import { MainContext } from "../../context/MainContext";
+import Loader from "../Loader";
+import { fetchMostPopularArticles } from "../../api";
 
 function ArticleListingContainer() {
   const { results, setResults } = useContext(MainContext);
@@ -8,20 +10,19 @@ function ArticleListingContainer() {
   const [error, setError] = useState(null);
   useEffect(() => {
     setLoading(true);
-    fetch(
-      "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=2x4KUAcLSwFMuIZxVpNyTb2GYSyi9tvS"
-    )
-      .then((res) => res.json())
-      .then((data) => {
+    (async function () {
+      try {
+        const data = await fetchMostPopularArticles();
         setResults(data.results);
         setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         setError(error.message);
-      });
+        setLoading(false);
+      }
+    })();
   }, []);
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader color={"black"} />;
   }
   if (error) {
     return <div>{error}</div>;

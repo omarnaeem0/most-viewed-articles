@@ -12,11 +12,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <MainContext.Provider
-        value={{ results, setResults, selectedArticle, setSelectedArticle }}
-      >
-        {selectedArticle === null ? <ArticleListing /> : <ArticleDetails />}
-      </MainContext.Provider>
+      <div className="container">
+        <MainContext.Provider
+          value={{ results, setResults, selectedArticle, setSelectedArticle }}
+        >
+          {selectedArticle === null ? <ArticleListing /> : <ArticleDetails />}
+        </MainContext.Provider>
+      </div>
     </div>
   );
 }

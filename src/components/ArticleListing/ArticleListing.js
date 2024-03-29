@@ -1,12 +1,12 @@
+import ArticleListItem from "../ArticleListItem";
 import List from "../List";
-import ListItem from "../ListItem";
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
-function ArticleListing({results}) {
+function ArticleListing({ results }) {
   return (
     <List className={styles.container}>
-      {results.map((item) => (
-        <ListItem item={item} />
+      {results.map((item, index) => (
+        <ArticleListItem item={item} index={index} key={item.id} />
       ))}
     </List>
   );

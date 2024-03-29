@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ArticleListing from "./ArticleListing";
+import { MainContext } from "../../context/MainContext";
 
 function ArticleListingContainer() {
+  const { results, setResults } = useContext(MainContext);
   const [loading, setLoading] = useState(true);
-  const [results, setResults] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
     setLoading(true);

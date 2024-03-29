@@ -1,0 +1,55 @@
+.container {
+  padding-top: 107px;
+  max-width: 600px;
+  margin: 0px auto;
+  text-align: start;
+}
+
+.backButton {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 12px 0px;
+}
+
+.image {
+  width: 600px;
+  height: auto;
+}
+
+.imageDetails {
+  margin: 10px 20px 0 0;
+}
+
+.caption {
+  text-align: left;
+  font-size: 0.9375rem;
+  line-height: 1.25rem;
+}
+
+.marginBottom {
+  margin-bottom: 24px;
+}
+
+.inline {
+  display: inline;
+}
+
+.articleLinkContainer {
+  background: var(--color-background-primary, #FFFFFF);
+  border: 1px solid var(--color-stroke-quaternary, #DFDFDF);
+  cursor: pointer;
+  margin: 24px 0px;
+  text-align: center;
+  display: flex;
+}
+
+.articleLink {
+  color: var(--color-content-primary, #121212);
+  box-shadow: none;
+  text-decoration: none !important;
+  padding: 24px;
+  width: 100%;
+  flex: 1
+}

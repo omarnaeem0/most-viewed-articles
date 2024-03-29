@@ -1,0 +1,53 @@
+.date {
+  color: #999;
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+
+.section {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 0.6875rem;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.title {
+  font-family: nyt-cheltenham, georgia, 'times new roman', times, serif;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
+  margin-bottom: 5px;
+  font-size: 1.4375rem;
+  line-height: 1.5625rem;
+}
+
+.paragraph {
+  color: #333;
+  font-family: nyt-imperial, georgia, 'times new roman', times, serif;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  overflow: hidden;
+}
+
+.cta {
+  color: #121212;
+  font-family: nyt-cheltenham, georgia, 'times new roman', times, serif;
+  font-size: 0.75rem;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
+  line-height: 0.75rem;
+  margin: 6px 0;
+}

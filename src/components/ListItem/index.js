@@ -1,20 +1,21 @@
+import Text from "../Text";
 import styles from "./styles.module.scss";
 
 export default function ListItem({ item }) {
   return (
     <li className={styles.listItem}>
-      <span className={styles.date}>{item.published_date}</span>
+      <Text variant={"date"} className={styles.date}>
+        {item.published_date}
+      </Text>
       <div className={styles.content}>
         <div className={styles.details}>
-          <p className={styles.section}>{item.section}</p>
-          <h4 className={styles.title}>{item.title}</h4>
-          <p className={styles.abstract}>{item.abstract}</p>
-          <p className={styles.byline}>{item.byline}</p>
+          <Text variant={"section"}>{item.section}</Text>
+          <Text variant={"title"}>{item.title}</Text>
+          <Text variant={"paragraph"}>{item.abstract}</Text>
+          <Text variant={"cta"}>{item.byline}</Text>
         </div>
         <figure className={styles.imageSection}>
-          <div className={styles.imageContainer}>
-            <img src={item?.media?.[0]?.['media-metadata']?.[1]?.url}/>
-          </div>
+          <img src={item?.media?.[0]?.["media-metadata"]?.[1]?.url} />
         </figure>
       </div>
     </li>

@@ -1,12 +1,6 @@
-import ListItem from "../ListItem";
-import styles from './styles.module.scss';
+import classNames from "classnames";
+import styles from "./styles.module.scss";
 
-export default function List({ results }) {
-  return (
-    <ul className={styles.list}>
-      {results.map((item) => (
-        <ListItem item={item} />
-      ))}
-    </ul>
-  );
+export default function List({ children, className }) {
+  return <ul className={classNames(styles.list, className)}>{children}</ul>;
 }

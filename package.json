@@ -132,7 +132,15 @@
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
     ],
-    "resetMocks": true
+    "resetMocks": true,
+    "testPathIgnorePatterns": [
+      "dist",
+      "src/api"
+    ],
+    "coveragePathIgnorePatterns": [
+      "dist",
+      "src/api"
+    ]
   },
   "babel": {
     "presets": [

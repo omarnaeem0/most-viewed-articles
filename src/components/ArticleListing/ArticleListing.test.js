@@ -1,10 +1,10 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ArticleListing from "./ArticleListing";
 import renderer from "react-test-renderer";
 import { ContextWrapper } from "../../context/MainContext";
 import ArticleListingContainer from ".";
 
-const data = {
+const mockData = {
   uri: "nyt://article/5b3ac615-1536-52b4-a1c3-ea3931b189e8",
   url: "https://www.nytimes.com/2024/03/27/well/colon-cancer-symptoms-treatment.html",
   id: 100000009368097,
@@ -67,48 +67,76 @@ const data = {
   ],
   eta_id: 0,
 };
-
-test("ArticleListing component with mock data", () => {
-  const tree = renderer.create(<ArticleListing results={[data]} />).toJSON();
-  expect(tree).toMatchSnapshot();
+jest.mock("../../api/index.js");
+describe("ArticleListing success", () => {
+  it("ArticleListing component with mock data", () => {
+    const tree = renderer
+      .create(<ArticleListing results={[mockData]} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("ArticleListing component with mock data matching data", () => {
+    render(
+      <ArticleListing
+        results={[mockData]}
+        setSelectedArticle={(i) => expect(i).toBe(null)}
+      />
+    );
+    expect(screen.getAllByRole("listitem")).toHaveLength(1);
+  });
+  it("ArticleListingContainer with contextWrapper with default props", () => {
+    const tree = renderer
+      .create(
+        <ContextWrapper>
+          <ArticleListingContainer />
+        </ContextWrapper>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("ArticleListingContainer snapshot returns details", () => {
+    const tree = renderer
+      .create(
+        <ContextWrapper defaultResults={[mockData]} defaultSelectedArticle={0}>
+          <ArticleListingContainer />
+        </ContextWrapper>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("ArticleListingContainer snapshot returns null", () => {
+    const tree = renderer
+      .create(
+        <ContextWrapper
+          defaultResults={[mockData]}
+          defaultSelectedArticle={null}
+        >
+          <ArticleListingContainer />
+        </ContextWrapper>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
-test("ArticleListing component with mock data matching data", () => {
-  render(
-    <ArticleListing
-      results={[data]}
-      setSelectedArticle={(i) => expect(i).toBe(null)}
-    />
-  );
-  expect(screen.getAllByRole("listitem")).toHaveLength(1);
-});
-jest.mock('../../api/index.js');
-test("ArticleListingContainer with contextWrapper with default props", () => {
-  const tree = renderer
-    .create(
-      <ContextWrapper>
-        <ArticleListingContainer />
-      </ContextWrapper>
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
-});
-test("ArticleListingContainer snapshot returns details", () => {
-  const tree = renderer
-    .create(
-      <ContextWrapper defaultResults={[data]} defaultSelectedArticle={0}>
-        <ArticleListingContainer />
-      </ContextWrapper>
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
-});
-test("ArticleListingContainer snapshot returns null", () => {
-  const tree = renderer
-    .create(
-      <ContextWrapper defaultResults={[data]} defaultSelectedArticle={null}>
-        <ArticleListingContainer />
-      </ContextWrapper>
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
-});
+// describe("ArticleListing error", () => {
+//   beforeEach(() => {
+//     jest.clearAllMocks();
+//     jest.mock("../../api/index.js", () => {
+//       return {
+//         fetchMostPopularArticles: () => {
+//           throw new Error({ message: "Nothing Found!" });
+//         },
+//       };
+//     });
+//   });
+//   it("ArticleListingContainer with contextWrapper with error from api", () => {
+//     const tree = renderer
+//       .create(
+//         <ContextWrapper>
+//           <ArticleListingContainer />
+//         </ContextWrapper>
+//       )
+//       .toJSON();
+//     expect(tree).toMatchSnapshot();
+//   });
+// });

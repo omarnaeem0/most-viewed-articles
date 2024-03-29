@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ArticleListing component with mock data 1`] = `
+exports[`ArticleListing success ArticleListing component with mock data 1`] = `
 <ul
   className="list"
 >
@@ -54,7 +54,7 @@ exports[`ArticleListing component with mock data 1`] = `
 </ul>
 `;
 
-exports[`ArticleListingContainer snapshot returns details 1`] = `
+exports[`ArticleListing success ArticleListingContainer snapshot returns details 1`] = `
 <svg
   height={60}
   preserveAspectRatio="xMidYMid"
@@ -92,7 +92,7 @@ exports[`ArticleListingContainer snapshot returns details 1`] = `
 </svg>
 `;
 
-exports[`ArticleListingContainer snapshot returns null 1`] = `
+exports[`ArticleListing success ArticleListingContainer snapshot returns null 1`] = `
 <svg
   height={60}
   preserveAspectRatio="xMidYMid"
@@ -130,7 +130,7 @@ exports[`ArticleListingContainer snapshot returns null 1`] = `
 </svg>
 `;
 
-exports[`ArticleListingContainer with contextWrapper with default props 1`] = `
+exports[`ArticleListing success ArticleListingContainer with contextWrapper with default props 1`] = `
 <svg
   height={60}
   preserveAspectRatio="xMidYMid"

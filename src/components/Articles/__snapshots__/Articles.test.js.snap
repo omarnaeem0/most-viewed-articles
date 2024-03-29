@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleListingContainer with contextWrapper with default props 1`] = `
+<svg
+  height={60}
+  preserveAspectRatio="xMidYMid"
+  style={
+    Object {
+      "background": "transparent",
+      "display": "block",
+      "height": "calc(100vh - 107px)",
+      "margin": "auto",
+      "shapeRendering": "auto",
+    }
+  }
+  viewBox="0 0 100 100"
+  width={60}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    cx={50}
+    cy={50}
+    fill="none"
+    r={23}
+    stroke="black"
+    strokeDasharray="108.38494654884786 38.12831551628262"
+    strokeWidth={10}
+  >
+    <animateTransform
+      attributeName="transform"
+      dur="1s"
+      keyTimes="0;1"
+      repeatCount="indefinite"
+      type="rotate"
+      values="0 50 50;360 50 50"
+    />
+  </circle>
+</svg>
+`;
+
+exports[`ArticleListingContainer with defaultSelectedArticle prop 1`] = `
+<div
+  className="container"
+>
+  <button
+    className="backButton"
+    onClick={[Function]}
+  >
+    <p
+      className="paragraph"
+    >
+      Go back
+    </p>
+  </button>
+  <p
+    className="heading"
+  >
+    More Young People Than Ever Will Get Colorectal Cancer This Year
+  </p>
+  <p
+    className="title marginBottom"
+  >
+    Colon and rectal cancers are increasing among people younger than 50. Experts have a few ideas about why.
+  </p>
+  <img
+    className="image"
+    src="https://static01.nyt.com/images/2024/03/27/well/27Well-Colon-Cancer/27Well-Colon-Cancer-mediumThreeByTwo440.jpg"
+  />
+  <span
+    className="imageDetails"
+  >
+    <p
+      className="paragraph caption inline"
+    >
+       
+    </p>
+    <p
+      className="paragraph inline"
+    >
+      Pool photo by 
+      Jeannie Phan
+    </p>
+  </span>
+  <div
+    className="articleLinkContainer"
+  >
+    <a
+      className="articleLink"
+      href="https://www.nytimes.com/2024/03/27/well/colon-cancer-symptoms-treatment.html"
+    >
+      See full article
+    </a>
+  </div>
+</div>
+`;

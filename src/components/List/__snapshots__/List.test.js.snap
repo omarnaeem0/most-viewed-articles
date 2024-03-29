@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component 1`] = `
+<ul
+  className="list"
+>
+  <li>
+    listitem1
+  </li>
+  <li>
+    listitem2
+  </li>
+</ul>
+`;

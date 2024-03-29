@@ -62,7 +62,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "test:coverage": "node scripts/test.js --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": [

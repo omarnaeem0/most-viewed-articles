@@ -1,7 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import Text from ".";
-import ListItem from ".";
+import ArticleListing from "./ArticleListing";
 import renderer from "react-test-renderer";
+import { ContextWrapper } from "../../context/MainContext";
+import ArticleListingContainer from ".";
 
 const data = {
   uri: "nyt://article/5b3ac615-1536-52b4-a1c3-ea3931b189e8",
@@ -67,21 +68,47 @@ const data = {
   eta_id: 0,
 };
 
-test("ListItem component with mock data", () => {
-  const tree = renderer.create(<ListItem item={data} />).toJSON();
+test("ArticleListing component with mock data", () => {
+  const tree = renderer.create(<ArticleListing results={[data]} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-test("ListItem component with mock data matching data", () => {
-  render(<ListItem item={data} />);
-  expect(screen.getByRole("img")).toHaveAttribute(
-    "src",
-    data.media[0]["media-metadata"][1].url
+test("ArticleListing component with mock data matching data", () => {
+  render(
+    <ArticleListing
+      results={[data]}
+      setSelectedArticle={(i) => expect(i).toBe(null)}
+    />
   );
+  expect(screen.getAllByRole("listitem")).toHaveLength(1);
 });
-test("ListItem component with mock data on click", () => {
-  render(<ListItem item={data} index={2} onClick={(i) => expect(i).toBe(2)} />);
-  const liElement = screen.getByRole("listitem");
-  fireEvent.click(liElement);
-
-  expect(liElement).toBeDefined();
+jest.mock('../../api/index.js');
+test("ArticleListingContainer with contextWrapper with default props", () => {
+  const tree = renderer
+    .create(
+      <ContextWrapper>
+        <ArticleListingContainer />
+      </ContextWrapper>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+test("ArticleListingContainer snapshot returns details", () => {
+  const tree = renderer
+    .create(
+      <ContextWrapper defaultResults={[data]} defaultSelectedArticle={0}>
+        <ArticleListingContainer />
+      </ContextWrapper>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+test("ArticleListingContainer snapshot returns null", () => {
+  const tree = renderer
+    .create(
+      <ContextWrapper defaultResults={[data]} defaultSelectedArticle={null}>
+        <ArticleListingContainer />
+      </ContextWrapper>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

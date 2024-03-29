@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import Text from ".";
+import { render, screen, fireEvent } from "@testing-library/react";
 import ArticleDetails from "./ArticleDetails";
 import renderer from "react-test-renderer";
+import { ContextWrapper } from "../../context/MainContext";
+import ArticleDetailsContainer from ".";
 
 const data = {
   uri: "nyt://article/5b3ac615-1536-52b4-a1c3-ea3931b189e8",
@@ -72,7 +73,12 @@ test("ArticleDetails component with mock data", () => {
   expect(tree).toMatchSnapshot();
 });
 test("ArticleDetails component with mock data matching data", () => {
-  render(<ArticleDetails data={data} />);
+  render(
+    <ArticleDetails
+      data={data}
+      setSelectedArticle={(i) => expect(i).toBe(null)}
+    />
+  );
   expect(screen.getByRole("img")).toHaveAttribute(
     "src",
     data.media[0]["media-metadata"][2].url
@@ -82,4 +88,38 @@ test("ArticleDetails component with mock data matching data", () => {
     "href",
     data.url
   );
+  const buttonElement = screen.getByRole("button");
+  fireEvent.click(buttonElement);
+
+  expect(buttonElement).toBeDefined();
+});
+test("ArticleDetailsContainer with contextWrapper with default props", () => {
+  const tree = renderer
+    .create(
+      <ContextWrapper>
+        <ArticleDetailsContainer />
+      </ContextWrapper>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+test("ArticleDetailsContainer snapshot returns details", () => {
+  const tree = renderer
+    .create(
+      <ContextWrapper defaultResults={[data]} defaultSelectedArticle={0}>
+        <ArticleDetailsContainer />
+      </ContextWrapper>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+test("ArticleDetailsContainer snapshot returns null", () => {
+  const tree = renderer
+    .create(
+      <ContextWrapper defaultResults={[data]} defaultSelectedArticle={null}>
+        <ArticleDetailsContainer />
+      </ContextWrapper>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

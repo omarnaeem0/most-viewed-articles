@@ -55,3 +55,63 @@ exports[`ArticleDetails component with mock data 1`] = `
   </div>
 </div>
 `;
+
+exports[`ArticleDetailsContainer snapshot returns details 1`] = `
+<div
+  className="container"
+>
+  <button
+    className="backButton"
+    onClick={[Function]}
+  >
+    <p
+      className="paragraph"
+    >
+      Go back
+    </p>
+  </button>
+  <p
+    className="heading"
+  >
+    More Young People Than Ever Will Get Colorectal Cancer This Year
+  </p>
+  <p
+    className="title marginBottom"
+  >
+    Colon and rectal cancers are increasing among people younger than 50. Experts have a few ideas about why.
+  </p>
+  <img
+    className="image"
+    src="https://static01.nyt.com/images/2024/03/27/well/27Well-Colon-Cancer/27Well-Colon-Cancer-mediumThreeByTwo440.jpg"
+  />
+  <span
+    className="imageDetails"
+  >
+    <p
+      className="paragraph caption inline"
+    >
+       
+    </p>
+    <p
+      className="paragraph inline"
+    >
+      Pool photo by 
+      Jeannie Phan
+    </p>
+  </span>
+  <div
+    className="articleLinkContainer"
+  >
+    <a
+      className="articleLink"
+      href="https://www.nytimes.com/2024/03/27/well/colon-cancer-symptoms-treatment.html"
+    >
+      See full article
+    </a>
+  </div>
+</div>
+`;
+
+exports[`ArticleDetailsContainer snapshot returns null 1`] = `null`;
+
+exports[`ArticleDetailsContainer with contextWrapper with default props 1`] = `null`;

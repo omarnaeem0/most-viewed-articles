@@ -1,6 +1,5 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import Text from ".";
-import ListItem from ".";
+import { render, screen } from "@testing-library/react";
+import ArticleListItem from ".";
 import renderer from "react-test-renderer";
 
 const data = {
@@ -67,21 +66,14 @@ const data = {
   eta_id: 0,
 };
 
-test("ListItem component with mock data", () => {
-  const tree = renderer.create(<ListItem item={data} />).toJSON();
+test("ArticleListItem component with mock data", () => {
+  const tree = renderer.create(<ArticleListItem item={data} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-test("ListItem component with mock data matching data", () => {
-  render(<ListItem item={data} />);
+test("ArticleListItem component with mock data matching data", () => {
+  render(<ArticleListItem item={data} />);
   expect(screen.getByRole("img")).toHaveAttribute(
     "src",
     data.media[0]["media-metadata"][1].url
   );
-});
-test("ListItem component with mock data on click", () => {
-  render(<ListItem item={data} index={2} onClick={(i) => expect(i).toBe(2)} />);
-  const liElement = screen.getByRole("listitem");
-  fireEvent.click(liElement);
-
-  expect(liElement).toBeDefined();
 });

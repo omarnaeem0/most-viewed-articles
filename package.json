@@ -139,6 +139,7 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "react-test-renderer": "^18.2.0"
   }
 }

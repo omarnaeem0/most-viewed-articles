@@ -5,8 +5,8 @@ import classNames from "classnames";
 
 export default function Text({ variant, children, className }) {
   return (
-    <div className={classNames(styles[variant || "title"], className)}>
+    <p className={classNames(styles[variant || "title"], className)}>
       {children}
-    </div>
+    </p>
   );
 }

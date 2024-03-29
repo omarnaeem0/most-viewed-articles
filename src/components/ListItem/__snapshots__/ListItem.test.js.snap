@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem component with mock data 1`] = `
+<li
+  className="listItem"
+  onClick={[Function]}
+>
+  <p
+    className="date date"
+  >
+    2024-03-27
+  </p>
+  <div
+    className="content"
+  >
+    <div
+      className="details"
+    >
+      <p
+        className="section"
+      >
+        Well
+      </p>
+      <p
+        className="title"
+      >
+        More Young People Than Ever Will Get Colorectal Cancer This Year
+      </p>
+      <p
+        className="paragraph"
+      >
+        Colon and rectal cancers are increasing among people younger than 50. Experts have a few ideas about why.
+      </p>
+      <p
+        className="cta"
+      >
+        By Knvul Sheikh
+      </p>
+    </div>
+    <figure
+      className="imageSection"
+    >
+      <img
+        height={140}
+        src="https://static01.nyt.com/images/2024/03/27/well/27Well-Colon-Cancer/27Well-Colon-Cancer-mediumThreeByTwo210.jpg"
+        width={210}
+      />
+    </figure>
+  </div>
+</li>
+`;

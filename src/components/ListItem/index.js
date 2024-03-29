@@ -15,9 +15,11 @@ export default function ListItem({ item, index, onClick }) {
           <Text variant={"paragraph"}>{item.abstract}</Text>
           <Text variant={"cta"}>{item.byline}</Text>
         </div>
-        <figure className={styles.imageSection}>
-          <img src={image?.url} height={image.height} width={image.width} />
-        </figure>
+        {image && (
+          <figure className={styles.imageSection}>
+            <img src={image?.url} height={image.height} width={image.width} />
+          </figure>
+        )}
       </div>
     </li>
   );

@@ -67,8 +67,14 @@ const mockData = {
   ],
   eta_id: 0,
 };
-jest.mock("../../api/index.js");
-describe("ArticleListing success", () => {
+jest.mock("../../api/index.js", () => {
+  return {
+    fetchMostPopularArticles: async () => {
+      return { results: [mockData] };
+    },
+  };
+});
+describe("ArticleListing", () => {
   it("ArticleListing component with mock data", () => {
     const tree = renderer
       .create(<ArticleListing results={[mockData]} />)
@@ -118,25 +124,3 @@ describe("ArticleListing success", () => {
     expect(tree).toMatchSnapshot();
   });
 });
-// describe("ArticleListing error", () => {
-//   beforeEach(() => {
-//     jest.clearAllMocks();
-//     jest.mock("../../api/index.js", () => {
-//       return {
-//         fetchMostPopularArticles: () => {
-//           throw new Error({ message: "Nothing Found!" });
-//         },
-//       };
-//     });
-//   });
-//   it("ArticleListingContainer with contextWrapper with error from api", () => {
-//     const tree = renderer
-//       .create(
-//         <ContextWrapper>
-//           <ArticleListingContainer />
-//         </ContextWrapper>
-//       )
-//       .toJSON();
-//     expect(tree).toMatchSnapshot();
-//   });
-// });

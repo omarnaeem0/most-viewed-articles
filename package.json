@@ -135,11 +135,15 @@
     "resetMocks": true,
     "testPathIgnorePatterns": [
       "dist",
-      "src/api"
+      "src/api",
+      "src/reportWebVitals.js",
+      "src/index.js"
     ],
     "coveragePathIgnorePatterns": [
       "dist",
-      "src/api"
+      "src/api",
+      "src/reportWebVitals.js",
+      "src/index.js"
     ]
   },
   "babel": {

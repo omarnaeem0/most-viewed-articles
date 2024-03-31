@@ -23,9 +23,13 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm test:coverage`
+### `npm run test:coverage`
 
 Runs test along with generate coverage. Use `index.html` file in `coverage/lcon-report` directory to view code coverage details.
+
+### `npm run cypress:open`
+
+Opens cypress portal which allows running e2e tests.
 
 ### `npm run build`
 

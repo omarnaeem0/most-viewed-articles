@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import ArticleListing from "./ArticleListing";
+import ArticleListing from "../ArticleListing";
+import ArticleDetails from "../ArticleDetails";
 import { MainContext } from "../../context/MainContext";
 import Loader from "../Loader";
 import { fetchMostPopularArticles } from "../../api";
 
-function ArticleListingContainer() {
-  const { results, setResults } = useContext(MainContext);
+function Articles() {
+  const {  results, setResults, selectedArticle } = useContext(MainContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
@@ -20,14 +21,14 @@ function ArticleListingContainer() {
         setLoading(false);
       }
     })();
-  }, []);
+  }, [setResults]);
   if (loading) {
     return <Loader color={"black"} />;
   }
   if (error) {
     return <div>{error}</div>;
   }
-  return <ArticleListing results={results} />;
+  return selectedArticle === null ? <ArticleListing results={results}/> : <ArticleDetails />;
 }
 
-export default ArticleListingContainer;
+export default Articles;

@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 export default function ListItem({ item, index, onClick }) {
   const image = item?.media?.[0]?.["media-metadata"]?.[1];
   return (
-    <li className={styles.listItem} onClick={() => onClick(index)}>
+    <li data-testid={`article-list-item-${index}`} className={styles.listItem} onClick={() => onClick(index)}>
       <Text variant={"date"} className={styles.date}>
         {item.published_date}
       </Text>
@@ -17,7 +17,7 @@ export default function ListItem({ item, index, onClick }) {
         </div>
         {image && (
           <figure className={styles.imageSection}>
-            <img src={image?.url} height={image.height} width={image.width} />
+            <img alt={'img'} src={image?.url} height={image.height} width={image.width} />
           </figure>
         )}
       </div>

@@ -10,17 +10,20 @@ exports[`ArticleDetails component with mock data 1`] = `
   >
     <p
       className="paragraph"
+      data-testid="text-paragraph"
     >
       Go back
     </p>
   </button>
   <p
     className="heading"
+    data-testid="text-heading"
   >
     More Young People Than Ever Will Get Colorectal Cancer This Year
   </p>
   <p
     className="title marginBottom"
+    data-testid="text-title"
   >
     Colon and rectal cancers are increasing among people younger than 50. Experts have a few ideas about why.
   </p>
@@ -33,11 +36,13 @@ exports[`ArticleDetails component with mock data 1`] = `
   >
     <p
       className="paragraph caption inline"
+      data-testid="text-paragraph"
     >
        
     </p>
     <p
       className="paragraph inline"
+      data-testid="text-paragraph"
     >
       Pool photo by 
       Jeannie Phan
@@ -66,17 +71,20 @@ exports[`ArticleDetailsContainer snapshot returns details 1`] = `
   >
     <p
       className="paragraph"
+      data-testid="text-paragraph"
     >
       Go back
     </p>
   </button>
   <p
     className="heading"
+    data-testid="text-heading"
   >
     More Young People Than Ever Will Get Colorectal Cancer This Year
   </p>
   <p
     className="title marginBottom"
+    data-testid="text-title"
   >
     Colon and rectal cancers are increasing among people younger than 50. Experts have a few ideas about why.
   </p>
@@ -89,11 +97,13 @@ exports[`ArticleDetailsContainer snapshot returns details 1`] = `
   >
     <p
       className="paragraph caption inline"
+      data-testid="text-paragraph"
     >
        
     </p>
     <p
       className="paragraph inline"
+      data-testid="text-paragraph"
     >
       Pool photo by 
       Jeannie Phan

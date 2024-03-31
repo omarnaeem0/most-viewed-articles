@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 export default function Text({ variant, children, className }) {
   return (
-    <p className={classNames(styles[variant || "title"], className)}>
+    <p data-testid={`text-${variant}`} className={classNames(styles[variant || "title"], className)}>
       {children}
     </p>
   );

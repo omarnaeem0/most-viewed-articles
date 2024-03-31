@@ -2,7 +2,7 @@ import Articles from ".";
 import renderer from "react-test-renderer";
 import { ContextWrapper } from "../../context/MainContext";
 
-const data = {
+const mockData = {
   uri: "nyt://article/5b3ac615-1536-52b4-a1c3-ea3931b189e8",
   url: "https://www.nytimes.com/2024/03/27/well/colon-cancer-symptoms-treatment.html",
   id: 100000009368097,
@@ -66,23 +66,45 @@ const data = {
   eta_id: 0,
 };
 
-test("ArticleListingContainer with contextWrapper with default props", () => {
-  const tree = renderer
-    .create(
-      <ContextWrapper defaultResults={[data]}>
-        <Articles />
-      </ContextWrapper>
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+jest.mock("../../api/index.js", () => {
+  return {
+    fetchMostPopularArticles: async () => {
+      return { results: [mockData] };
+    },
+  };
 });
-test("ArticleListingContainer with defaultSelectedArticle prop", () => {
-  const tree = renderer
-    .create(
-      <ContextWrapper defaultResults={[data]} defaultSelectedArticle={0}>
-        <Articles />
-      </ContextWrapper>
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+describe("Articles", () => {
+  it("Articles with contextWrapper with default props", () => {
+    const tree = renderer
+      .create(
+        <ContextWrapper>
+          <Articles />
+        </ContextWrapper>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("Articles snapshot returns details", () => {
+    const tree = renderer
+      .create(
+        <ContextWrapper defaultResults={[mockData]} defaultSelectedArticle={0}>
+          <Articles />
+        </ContextWrapper>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("Articles snapshot returns null", () => {
+    const tree = renderer
+      .create(
+        <ContextWrapper
+          defaultResults={[mockData]}
+          defaultSelectedArticle={null}
+        >
+          <Articles />
+        </ContextWrapper>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

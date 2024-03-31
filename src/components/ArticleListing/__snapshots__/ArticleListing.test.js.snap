@@ -6,10 +6,12 @@ exports[`ArticleListing ArticleListing component with mock data 1`] = `
 >
   <li
     className="listItem"
+    data-testid="article-list-item-0"
     onClick={[Function]}
   >
     <p
       className="date date"
+      data-testid="text-date"
     >
       2024-03-27
     </p>
@@ -21,21 +23,25 @@ exports[`ArticleListing ArticleListing component with mock data 1`] = `
       >
         <p
           className="section"
+          data-testid="text-section"
         >
           Well
         </p>
         <p
           className="title"
+          data-testid="text-title"
         >
           More Young People Than Ever Will Get Colorectal Cancer This Year
         </p>
         <p
           className="paragraph"
+          data-testid="text-paragraph"
         >
           Colon and rectal cancers are increasing among people younger than 50. Experts have a few ideas about why.
         </p>
         <p
           className="cta"
+          data-testid="text-cta"
         >
           By Knvul Sheikh
         </p>
@@ -44,6 +50,7 @@ exports[`ArticleListing ArticleListing component with mock data 1`] = `
         className="imageSection"
       >
         <img
+          alt="img"
           height={140}
           src="https://static01.nyt.com/images/2024/03/27/well/27Well-Colon-Cancer/27Well-Colon-Cancer-mediumThreeByTwo210.jpg"
           width={210}
@@ -54,116 +61,8 @@ exports[`ArticleListing ArticleListing component with mock data 1`] = `
 </ul>
 `;
 
-exports[`ArticleListing ArticleListingContainer snapshot returns details 1`] = `
-<svg
-  height={60}
-  preserveAspectRatio="xMidYMid"
-  style={
-    Object {
-      "background": "transparent",
-      "display": "block",
-      "height": "calc(100vh - 107px)",
-      "margin": "auto",
-      "shapeRendering": "auto",
-    }
-  }
-  viewBox="0 0 100 100"
-  width={60}
-  xmlns="http://www.w3.org/2000/svg"
->
-  <circle
-    cx={50}
-    cy={50}
-    fill="none"
-    r={23}
-    stroke="black"
-    strokeDasharray="108.38494654884786 38.12831551628262"
-    strokeWidth={10}
-  >
-    <animateTransform
-      attributeName="transform"
-      dur="1s"
-      keyTimes="0;1"
-      repeatCount="indefinite"
-      type="rotate"
-      values="0 50 50;360 50 50"
-    />
-  </circle>
-</svg>
-`;
-
-exports[`ArticleListing ArticleListingContainer snapshot returns null 1`] = `
-<svg
-  height={60}
-  preserveAspectRatio="xMidYMid"
-  style={
-    Object {
-      "background": "transparent",
-      "display": "block",
-      "height": "calc(100vh - 107px)",
-      "margin": "auto",
-      "shapeRendering": "auto",
-    }
-  }
-  viewBox="0 0 100 100"
-  width={60}
-  xmlns="http://www.w3.org/2000/svg"
->
-  <circle
-    cx={50}
-    cy={50}
-    fill="none"
-    r={23}
-    stroke="black"
-    strokeDasharray="108.38494654884786 38.12831551628262"
-    strokeWidth={10}
-  >
-    <animateTransform
-      attributeName="transform"
-      dur="1s"
-      keyTimes="0;1"
-      repeatCount="indefinite"
-      type="rotate"
-      values="0 50 50;360 50 50"
-    />
-  </circle>
-</svg>
-`;
-
-exports[`ArticleListing ArticleListingContainer with contextWrapper with default props 1`] = `
-<svg
-  height={60}
-  preserveAspectRatio="xMidYMid"
-  style={
-    Object {
-      "background": "transparent",
-      "display": "block",
-      "height": "calc(100vh - 107px)",
-      "margin": "auto",
-      "shapeRendering": "auto",
-    }
-  }
-  viewBox="0 0 100 100"
-  width={60}
-  xmlns="http://www.w3.org/2000/svg"
->
-  <circle
-    cx={50}
-    cy={50}
-    fill="none"
-    r={23}
-    stroke="black"
-    strokeDasharray="108.38494654884786 38.12831551628262"
-    strokeWidth={10}
-  >
-    <animateTransform
-      attributeName="transform"
-      dur="1s"
-      keyTimes="0;1"
-      repeatCount="indefinite"
-      type="rotate"
-      values="0 50 50;360 50 50"
-    />
-  </circle>
-</svg>
+exports[`ArticleListing ArticleListing component without mock data 1`] = `
+<ul
+  className="list"
+/>
 `;

@@ -1,1 +1,1 @@
-export {default} from './ArticleListing.container';
+export {default} from './ArticleListing';
